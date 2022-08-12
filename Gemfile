@@ -45,3 +45,4 @@ gem 'rack-cors'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use postgres as database for ActiveRecord
 gem 'pg'
+gem 'jsonapi-serializer'
