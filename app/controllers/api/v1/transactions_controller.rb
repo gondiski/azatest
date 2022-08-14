@@ -15,6 +15,7 @@ class Api::V1::TransactionsController < ApplicationController
       render status: :ok, json: { notice: "Transaction successfully made!" }
     else
       render json: transaction.errors, status: :unprocessable_entity
+    end
   end
 
   private
