@@ -9,15 +9,12 @@ class Api::V1::TransactionsController < ApplicationController
     render json: transaction
   end
 
-  def new
-    transaction = Transaction.new
-    render json: transaction
-  end
-
   def create
     transaction = Transaction.new(transaction_params)
-    transaction.save!
-    render status: :ok, json: { notice: "Transaction successfully made!" }
+    if transaction.save
+      render status: :ok, json: { notice: "Transaction successfully made!" }
+    else
+      render json: transaction.errors, status: :unprocessable_entity
   end
 
   private

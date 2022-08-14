@@ -7,14 +7,60 @@ paths:
   "/api/v1/transactions":
     get:
       summary: list transactions
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+                input_amount:
+                  type: number
+                input_currency:
+                  type: string
+                output_amount:
+                  type: number
+                output_currency:
+                  type: string
+              required:
+              - customer_id
+              - input_amount
+              - input_currency
+              - output_amount
+              - output_currency
     post:
       summary: create transaction
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+                input_amount:
+                  type: number
+                input_currency:
+                  type: string
+                output_amount:
+                  type: number
+                output_currency:
+                  type: string
+              required:
+              - customer_id
+              - input_amount
+              - input_currency
+              - output_amount
+              - output_currency
   "/api/v1/transactions/{id}":
     parameters:
     - name: id

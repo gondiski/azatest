@@ -6,7 +6,18 @@ RSpec.describe 'api/v1/transactions', type: :request do
 
     get('list transactions') do
       response(200, 'successful') do
-
+        consumes 'application/json'
+        parameter name: :transaction, in: :body, schema: {
+          type: :object,
+          properties: {
+            customer_id: {type: :integer},
+            input_amount: {type: :number},
+            input_currency: {type: :string},
+            output_amount: {type: :number},
+            output_currency: {type: :string}
+          },
+          required: %w[customer_id input_amount input_currency output_amount output_currency] 
+        }
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -20,7 +31,18 @@ RSpec.describe 'api/v1/transactions', type: :request do
 
     post('create transaction') do
       response(200, 'successful') do
-
+        consumes 'application/json'
+        parameter name: :transaction, in: :body, schema: {
+          type: :object,
+          properties: {
+            customer_id: {type: :integer},
+            input_amount: {type: :number},
+            input_currency: {type: :string},
+            output_amount: {type: :number},
+            output_currency: {type: :string}
+          },
+          required: %w[customer_id input_amount input_currency output_amount output_currency] 
+        }
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -55,7 +77,7 @@ RSpec.describe 'api/v1/transactions', type: :request do
     patch('update transaction') do
       response(200, 'successful') do
         let(:id) { '123' }
-
+        
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
