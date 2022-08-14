@@ -6,18 +6,13 @@ RSpec.describe 'api/v1/transactions', type: :request do
 
     get('list transactions') do
       response(200, 'successful') do
+        produces 'application/json'
         consumes 'application/json'
-        parameter name: :transaction, schema: {
-          type: :object,
-          properties: {
-            customer_id: {type: :integer},
-            input_amount: {type: :number},
-            input_currency: {type: :string},
-            output_amount: {type: :number},
-            output_currency: {type: :string}
-          },
-          required: %w[customer_id input_amount input_currency output_amount output_currency] 
-        }
+        parameter name: :query,
+                  in: :query,
+                  description: "Optional id to search transaction",
+                  required: false
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {

@@ -24,12 +24,12 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'http://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: '127.0.0.1:3000'
-            }
-          }
+          url: 'http://127.0.0.1:3000',
+          description: "Development environment"
+        },
+        {
+          url: 'https://azatest.onrender.com}',
+          description: "Production environment"
         }
       ]
     }
