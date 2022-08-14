@@ -7,7 +7,7 @@ RSpec.describe 'api/v1/transactions', type: :request do
     get('list transactions') do
       response(200, 'successful') do
         consumes 'application/json'
-        parameter name: :transaction, in: :body, schema: {
+        parameter name: :transaction, schema: {
           type: :object,
           properties: {
             customer_id: {type: :integer},
@@ -77,7 +77,7 @@ RSpec.describe 'api/v1/transactions', type: :request do
     patch('update transaction') do
       response(200, 'successful') do
         let(:id) { '123' }
-        
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
