@@ -56,23 +56,8 @@ paths:
       responses:
         '200':
           description: successful
-    patch:
-      summary: update transaction
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update transaction
-      responses:
-        '200':
-          description: successful
-    delete:
-      summary: delete transaction
-      responses:
-        '200':
-          description: successful
 servers:
 - url: http://127.0.0.1:3000
   description: Development environment
-- url: https://azatest.onrender.com}
+- url: https://azatest.onrender.com
   description: Production environment
