@@ -11,6 +11,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   def create
     transaction = Transaction.new(transaction_params)
+    transaction.date_of_transaction = DateTime.now
     if transaction.save
       render status: :ok, json: { notice: "Transaction successfully made!" }
     else
