@@ -17,7 +17,7 @@ class Api::V1::TransactionsController < ApplicationController
     puts "Conversion is #{conversion}"
     transaction.output_amount = conversion
     if transaction.save
-      render status: :ok, json: { notice: "Transaction successfully made!" }
+      render status: :ok, json: transaction
     else
       render json: transaction.errors, status: :unprocessable_entity
     end
