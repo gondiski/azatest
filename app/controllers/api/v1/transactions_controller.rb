@@ -1,4 +1,5 @@
 class Api::V1::TransactionsController < ApplicationController
+  require 'services/fx'
   def index
     transactions = Transaction.all
     render json: transactions
@@ -12,6 +13,9 @@ class Api::V1::TransactionsController < ApplicationController
   def create
     transaction = Transaction.new(transaction_params)
     transaction.date_of_transaction = DateTime.now
+    conversion = Services::Fx.convert(transaction.input_currency,transaction.output_currency,transaction.input_amount)
+    puts "Conversion is #{conversion}"
+    transaction.output_amount = conversion
     if transaction.save
       render status: :ok, json: { notice: "Transaction successfully made!" }
     else
