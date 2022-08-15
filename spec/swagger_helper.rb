@@ -28,7 +28,7 @@ RSpec.configure do |config|
           description: "Development environment"
         },
         {
-          url: 'https://azatest.onrender.com}',
+          url: 'https://azatest.onrender.com',
           description: "Production environment"
         }
       ]
