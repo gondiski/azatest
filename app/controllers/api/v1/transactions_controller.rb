@@ -1,5 +1,6 @@
 class Api::V1::TransactionsController < ApplicationController
   require 'services/fx'
+  before_action :set_transaction, only: [:show, :update, :destroy]
   def index
     transactions = Transaction.all
     render json: transactions
@@ -23,9 +24,23 @@ class Api::V1::TransactionsController < ApplicationController
     end
   end
 
+  def update
+    if @transaction.update(transaction_params)
+      conversion = Services::Fx.convert(@transaction.input_currency,@transaction.output_currency,@transaction.input_amount)
+      @transaction.output_amount = conversion
+      render status: :ok, json: @transaction
+    else
+      render json: @tranaction.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def transaction_params
     params.require(:transaction).permit(:customer_id, :input_amount, :input_currency, :output_amount, :output_currency, :date_of_transaction)
+  end
+ 
+  def set_transaction
+    @transaction = Transaction.find(params[:id])
   end
 end

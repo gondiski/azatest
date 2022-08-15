@@ -20,6 +20,17 @@ RSpec.describe Transaction, type: :model do
     subject.input_amount = nil
     expect(subject).to_not be_valid
   end
+
+  it "is greater than 0" do
+    subject.input_currency = -200
+    expect(subject).to_not be_valid
+  end
+
+  it "is not a valid money value" do 
+    subject.input_amount = nil
+    expect(subject).to_not be_valid
+  end
+
   it "is not valid without an output currency" do
     subject.output_currency = nil
     expect(subject).to_not be_valid
