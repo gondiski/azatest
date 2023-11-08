@@ -1,0 +1,34 @@
+Arguments: 
+  /usr/bin/node /home/dinah/.yarn/bin/yarn.js add toastr
+
+PATH: 
+  /home/dinah/.yarn/bin:/home/dinah/.config/yarn/global/node_modules/.bin:/home/dinah/.rbenv/shims:/home/dinah/.rbenv/bin:/home/dinah/.rbenv/shims:/home/dinah/,rbenv/bin:/home/dinah/.rbenv/shims:/home/dinah/.rbenv/bin:/home/dinah/,rbenv/bin:/home/dinah/bin:/home/dinah/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+      at internalConnect (node:net:953:16)
+      at defaultTriggerAsyncIdScope (node:internal/async_hooks:465:18)
+      at emitLookup (node:net:1097:9)
+      at /home/dinah/.yarn/lib/cli.js:103587:28
+      at /home/dinah/.yarn/lib/cli.js:103496:13
+      at RawTask.module.exports.RawTask.call (/home/dinah/.yarn/lib/cli.js:79584:19)
+      at flush (/home/dinah/.yarn/lib/cli.js:79666:29)
+      at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

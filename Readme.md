@@ -1,6 +1,6 @@
 # FX Transaction Microservice implementation in Ruby on Rails
 
-[azatest.onrender.com](azatest.onrender.com)
+
 ## Install
 
 ### Clone the repository
