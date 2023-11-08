@@ -31,6 +31,8 @@ Using [Bundler](https://github.com/bundler/bundler):
 ```shell
 bundle
 ```
+### API Key
+Generate an API key from [Exchange Rate API](https://v6.exchangerate-api.com/v6/) and include it in your .env file
 
 ### Set environment variables
 
